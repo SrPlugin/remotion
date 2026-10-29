@@ -10,9 +10,9 @@ import {Shell} from '../Shell';
 import {C} from '../theme';
 
 const N = 10;
-const CX = 620;
-const CY = 560;
-const R = 240;
+const CX = 540;
+const CY = 1010;
+const R = 200;
 const FAILED = 3;
 const palette = [C.green, C.blue, C.orange, C.purple, C.yellow];
 
@@ -44,7 +44,7 @@ export const Ring: React.FC = () => {
 				'Cada servidor sabe qué parte del trabajo le toca y detecta cuándo otro cae.',
 			]}
 		>
-			<svg width={1920} height={1080} style={{position: 'absolute', inset: 0, opacity: intro}}>
+			<svg width={1080} height={1920} style={{position: 'absolute', inset: 0, opacity: intro}}>
 				{Array.from({length: N}, (_, i) => {
 					const a0 = angle(i - 1);
 					const a1 = angle(i);
@@ -84,13 +84,13 @@ export const Ring: React.FC = () => {
 						key={l}
 						style={{
 							position: 'absolute',
-							left: 1000,
-							top: 340 + i * 140,
-							width: 860,
+							left: 80,
+							top: 1290 + i * 58,
+							width: 920,
 							display: 'flex',
 							alignItems: 'center',
 							gap: 24,
-							fontSize: 44,
+							fontSize: 38,
 							fontWeight: 700,
 							opacity: s,
 							transform: `translateX(${(1 - s) * 40}px)`,

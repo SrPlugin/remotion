@@ -51,10 +51,10 @@ export const Scale: React.FC = () => {
 						key={s.label}
 						style={{
 							position: 'absolute',
-							left: 140 + i * 420,
-							top: 330,
-							width: 380,
-							height: 400,
+							left: 80 + (i % 2) * 480,
+							top: 620 + Math.floor(i / 2) * 340,
+							width: 440,
+							height: 300,
 							background: C.panel,
 							border: `2px solid ${C.line}`,
 							borderTop: `6px solid ${C.green}`,
@@ -67,12 +67,12 @@ export const Scale: React.FC = () => {
 							justifyContent: 'center',
 						}}
 					>
-						<div style={{fontSize: 100, fontWeight: 800, color: C.green}}>
+						<div style={{fontSize: 96, fontWeight: 800, color: C.green}}>
 							{s.value === null
 								? s.text
 								: `${s.prefix}${Math.round(s.value * count)}${s.suffix}`}
 						</div>
-						<div style={{fontSize: 44, fontWeight: 600, marginTop: 8, textAlign: 'center', padding: '0 16px'}}>
+						<div style={{fontSize: 40, fontWeight: 600, marginTop: 8, textAlign: 'center', padding: '0 16px'}}>
 							{s.label}
 						</div>
 					</div>
@@ -81,8 +81,8 @@ export const Scale: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					left: 140,
-					top: 780,
+					left: 80,
+					top: 1310,
 					fontSize: 32,
 					color: C.muted,
 				}}

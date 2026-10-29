@@ -25,6 +25,7 @@ type EdgeProps = {
 	readonly phase: number;
 	readonly color: string;
 	readonly opacity: number;
+	readonly vertical: boolean;
 };
 
 // Render inside an <svg>. Draws a curve, then loops a packet along it.
@@ -35,6 +36,7 @@ export const Edge: React.FC<EdgeProps> = ({
 	phase,
 	color,
 	opacity,
+	vertical,
 }) => {
 	const frame = useCurrentFrame();
 	const draw = interpolate(frame, [start, start + 20], [0, 1], {
@@ -42,9 +44,17 @@ export const Edge: React.FC<EdgeProps> = ({
 		extrapolateRight: 'clamp',
 	});
 	const mx = (from.x + to.x) / 2;
-	const d = `M ${from.x} ${from.y} C ${mx} ${from.y}, ${mx} ${to.y}, ${to.x} ${to.y}`;
+	const my = (from.y + to.y) / 2;
+	const d = vertical
+		? `M ${from.x} ${from.y} C ${from.x} ${my}, ${to.x} ${my}, ${to.x} ${to.y}`
+		: `M ${from.x} ${from.y} C ${mx} ${from.y}, ${mx} ${to.y}, ${to.x} ${to.y}`;
 	const t = ((((frame - start - 20 + phase) % 50) + 50) % 50) / 50;
-	const p = bezier(from, to, t);
+	const p = vertical
+		? (() => {
+				const q = bezier({x: from.y, y: from.x}, {x: to.y, y: to.x}, t);
+				return {x: q.y, y: q.x};
+			})()
+		: bezier(from, to, t);
 
 	return (
 		<g opacity={opacity}>
@@ -71,6 +81,8 @@ type NodeProps = {
 	readonly h: number;
 	readonly title: string;
 	readonly sub: string;
+	readonly titleSize: number;
+	readonly subSize: number;
 	readonly start: number;
 	readonly highlight: boolean;
 };
@@ -82,6 +94,8 @@ export const Node: React.FC<NodeProps> = ({
 	h,
 	title,
 	sub,
+	titleSize,
+	subSize,
 	start,
 	highlight,
 }) => {
@@ -109,8 +123,8 @@ export const Node: React.FC<NodeProps> = ({
 				justifyContent: 'center',
 			}}
 		>
-			<div style={{fontSize: 40, fontWeight: 800}}>{title}</div>
-			<div style={{fontSize: 26, color: C.muted, marginTop: 4}}>{sub}</div>
+			<div style={{fontSize: titleSize, fontWeight: 800}}>{title}</div>
+			<div style={{fontSize: subSize, color: C.muted, marginTop: 4}}>{sub}</div>
 		</div>
 	);
 };

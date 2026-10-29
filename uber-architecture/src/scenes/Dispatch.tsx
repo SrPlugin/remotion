@@ -3,9 +3,9 @@ import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {Shell} from '../Shell';
 import {C} from '../theme';
 
-const SIZE = 40;
-const CX = 1350;
-const CY = 560;
+const SIZE = 32;
+const CX = 540;
+const CY = 1150;
 const RADIUS = 5;
 
 const toPixel = (q: number, r: number) => ({
@@ -73,13 +73,13 @@ export const Dispatch: React.FC = () => {
 						key={b}
 						style={{
 							position: 'absolute',
-							left: 120,
-							top: 330 + i * 150,
-							width: 760,
+							left: 80,
+							top: 620 + i * 80,
+							width: 920,
 							display: 'flex',
 							alignItems: 'center',
 							gap: 24,
-							fontSize: 48,
+							fontSize: 42,
 							fontWeight: 700,
 							opacity: s,
 							transform: `translateX(${(1 - s) * -40}px)`,
@@ -90,7 +90,7 @@ export const Dispatch: React.FC = () => {
 					</div>
 				);
 			})}
-			<svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
+			<svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
 				{hexes.map((h) => {
 					const p = toPixel(h.q, h.r);
 					const appear = interpolate(frame, [h.dist * 4, h.dist * 4 + 15], [0, 1], {
@@ -155,8 +155,8 @@ export const Dispatch: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					left: (rider.x + wx) / 2 - 200,
-					top: (rider.y + wy) / 2 - 90,
+					left: (rider.x + wx) / 2 - 70,
+					top: (rider.y + wy) / 2 - 70,
 					fontSize: 44,
 					fontWeight: 800,
 					color: C.green,

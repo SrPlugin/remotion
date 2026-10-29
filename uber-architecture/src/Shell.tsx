@@ -64,8 +64,9 @@ export const Shell: React.FC<ShellProps> = ({
 				<div
 					style={{
 						position: 'absolute',
-						left: 120,
-						top: 70,
+						left: 80,
+						top: 210,
+						width: 920,
 						opacity: titleIn,
 						transform: `translateY(${(1 - titleIn) * 24}px)`,
 					}}
@@ -96,7 +97,7 @@ export const Shell: React.FC<ShellProps> = ({
 					left: 0,
 					right: 0,
 					bottom: 0,
-					height: 170,
+					height: 420,
 					background:
 						'linear-gradient(to top, rgba(0,0,0,0.92), rgba(0,0,0,0))',
 				}}
@@ -104,11 +105,11 @@ export const Shell: React.FC<ShellProps> = ({
 			<div
 				style={{
 					position: 'absolute',
-					left: 160,
-					right: 160,
-					bottom: 50,
+					left: 100,
+					right: 100,
+					bottom: 300,
 					textAlign: 'center',
-					fontSize: 38,
+					fontSize: 42,
 					fontWeight: 500,
 					lineHeight: 1.3,
 					opacity: captionOpacity,

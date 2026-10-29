@@ -8,8 +8,8 @@ import {
 import {Shell} from '../Shell';
 import {C} from '../theme';
 
-const COLS = 6;
-const ROWS = 4;
+const COLS = 4;
+const ROWS = 5;
 
 export const Monolith: React.FC = () => {
 	const frame = useCurrentFrame();
@@ -22,10 +22,10 @@ export const Monolith: React.FC = () => {
 		for (let c = 0; c < COLS; c++) {
 			nodes.push({
 				key: `${r}-${c}`,
-				sx: 360 + (c / (COLS - 1)) * 280,
-				sy: 400 + (r / (ROWS - 1)) * 240,
-				x: 900 + c * 150,
-				y: 330 + r * 130,
+				sx: 400 + (c / (COLS - 1)) * 280,
+				sy: 700 + (r / (ROWS - 1)) * 240,
+				x: 190 + c * 233,
+				y: 690 + r * 150,
 			});
 		}
 	}
@@ -45,7 +45,7 @@ export const Monolith: React.FC = () => {
 				'Uber lo separó en servicios independientes, cada uno con un dueño y un trabajo claro.',
 			]}
 		>
-			<svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
+			<svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
 				{nodes.map((n) => {
 					const [r, c] = n.key.split('-').map(Number);
 					const a = pos(n);
@@ -81,8 +81,8 @@ export const Monolith: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					left: 340,
-					top: 380,
+					left: 380,
+					top: 700,
 					width: 320,
 					height: 280,
 					borderRadius: 28,
@@ -99,10 +99,10 @@ export const Monolith: React.FC = () => {
 				<div style={{fontSize: 52, fontWeight: 800}}>Monolito</div>
 				<div style={{fontSize: 28, color: C.muted, marginTop: 6}}>Python · una DB</div>
 			</div>
-			<div style={{position: 'absolute', left: 340, top: 760, fontSize: 44, fontWeight: 700, color: C.muted, opacity: 1 - split}}>
+			<div style={{position: 'absolute', left: 80, width: 920, textAlign: 'center', top: 1060, fontSize: 44, fontWeight: 700, color: C.muted, opacity: 1 - split}}>
 				Antes: una sola app
 			</div>
-			<div style={{position: 'absolute', left: 900, top: 800, fontSize: 44, fontWeight: 700, color: C.green, opacity: split}}>
+			<div style={{position: 'absolute', left: 80, width: 920, textAlign: 'center', top: 1350, fontSize: 44, fontWeight: 700, color: C.green, opacity: split}}>
 				Hoy: servicios con dueño y misión
 			</div>
 		</Shell>

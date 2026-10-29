@@ -28,13 +28,9 @@ export const Intro: React.FC = () => {
 				'Detrás de ese toque hay una de las arquitecturas más estudiadas del mundo.',
 			]}
 		>
-			<svg
-				width={1920}
-				height={1080}
-				style={{position: 'absolute', inset: 0}}
-			>
+			<svg width={1080} height={1920} style={{position: 'absolute', inset: 0}}>
 				<path
-					d="M 120 800 C 450 640, 750 880, 1100 740 S 1550 640, 1800 760"
+					d="M 80 1330 C 300 1130, 480 1400, 620 1220 S 860 1040, 940 1180"
 					fill="none"
 					stroke={C.green}
 					strokeWidth={10}
@@ -45,26 +41,18 @@ export const Intro: React.FC = () => {
 				/>
 				{route >= 1 ? (
 					<>
-						<circle
-							cx={1800}
-							cy={760}
-							r={16 + pulse * 40}
-							fill="none"
-							stroke={C.green}
-							strokeWidth={4}
-							opacity={1 - pulse}
-						/>
-						<circle cx={1800} cy={760} r={16} fill={C.green} />
+						<circle cx={940} cy={1180} r={16 + pulse * 40} fill="none" stroke={C.green} strokeWidth={4} opacity={1 - pulse} />
+						<circle cx={940} cy={1180} r={16} fill={C.green} />
 					</>
 				) : null}
 			</svg>
 			<div
 				style={{
 					position: 'absolute',
-					left: 120,
-					top: 200,
-					width: 1600,
-					fontSize: 128,
+					left: 80,
+					top: 380,
+					width: 920,
+					fontSize: 112,
 					fontWeight: 800,
 					lineHeight: 1.05,
 					opacity: head,
@@ -77,9 +65,10 @@ export const Intro: React.FC = () => {
 			<div
 				style={{
 					position: 'absolute',
-					left: 120,
-					top: 560,
-					fontSize: 52,
+					left: 80,
+					top: 840,
+					width: 920,
+					fontSize: 50,
 					color: C.muted,
 					fontWeight: 500,
 					opacity: sub,

@@ -19,7 +19,7 @@ export const Outro: React.FC = () => {
 				'Si quieres aprender a diseñar sistemas así, te esperamos en byteTECH.',
 			]}
 		>
-			<div style={{position: 'absolute', left: 0, right: 0, top: 150, textAlign: 'center', fontSize: 120, fontWeight: 800, lineHeight: 1.1}}>
+			<div style={{position: 'absolute', left: 0, right: 0, top: 400, textAlign: 'center', fontSize: 100, fontWeight: 800, lineHeight: 1.1}}>
 				{words.map((w, i) => {
 					const s = spring({frame: frame - (10 + i * 22), fps, config: {damping: 200}});
 					return (
@@ -34,18 +34,19 @@ export const Outro: React.FC = () => {
 					position: 'absolute',
 					left: 0,
 					right: 0,
-					top: 640,
+					top: 940,
+					padding: '0 80px',
 					display: 'flex',
 					justifyContent: 'center',
 					opacity: cta,
 					transform: `scale(${0.9 + 0.1 * cta})`,
 				}}
 			>
-				<div style={{background: C.green, color: '#001a0d', fontSize: 52, fontWeight: 800, padding: '24px 56px', borderRadius: 999}}>
+				<div style={{background: C.green, color: '#001a0d', fontSize: 56, fontWeight: 800, padding: '36px 48px', borderRadius: 56, textAlign: 'center'}}>
 					Aprende a diseñar sistemas así en byteTECH
 				</div>
 			</div>
-			<div style={{position: 'absolute', left: 0, right: 0, top: 800, textAlign: 'center', fontSize: 30, color: C.muted, opacity: cta}}>
+			<div style={{position: 'absolute', left: 0, right: 0, top: 1260, textAlign: 'center', fontSize: 32, color: C.muted, opacity: cta}}>
 				Basado en blogs públicos de Uber Engineering
 			</div>
 		</Shell>
